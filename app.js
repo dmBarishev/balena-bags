@@ -21,7 +21,6 @@ app.get("/bags", function(req, res){
 
 
 
-console.log("Calling app.listen().");
 
 var server = app.listen(3000, function (){
   var host = server.address().address;
