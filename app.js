@@ -3,7 +3,7 @@ var express 	= require("express"),
 	bodyParser	= require("body-parser"),
 	mongoose	= require("mongoose")
 
-mongoose.connect("mongodb://localhost/katyaShop", function(err){
+mongoose.connect("mongodb://localhost/balena-bags", function(err){
 	if(err) throw err;
 	console.log("Mongoose successfully conected");
 });
