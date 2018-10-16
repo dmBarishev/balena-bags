@@ -32,7 +32,7 @@ app.get("/bags", function(req, res){
 app.post("/bags", function(req, res){
 	var name 		= req.body.name;
 	var image		= req.body.image;
-	var desc = req.body.description;
+	var desc 		= req.body.description;
 	var newBag 	= {name: name, image: image, description: desc};
 	Bag.create(newBag, function(err, newlyCreated){
 		if(err){
@@ -42,12 +42,18 @@ app.post("/bags", function(req, res){
 			res.redirect("/bags");
 		}
 	});
-	res.render("bags");
 });
 
 //NEW - show form to create new bag
 app.get("/bags/new", function(req, res){
-   res.render("bags/new"); 
+    // find campground by id
+    Bag.findById(req.params.id, function(err, bag){
+        if(err){
+            console.log(err);
+        } else {
+             res.render("bags/new", {bag: bag});
+        }
+    });
 });
 
 
